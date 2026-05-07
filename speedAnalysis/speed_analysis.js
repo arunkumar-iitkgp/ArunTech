@@ -21,6 +21,8 @@ startTime = new Date().getTime();
             // Disable user input
             document.getElementById("userInput").readOnly = true;
 
+            var userTypedText = document.getElementById("userInput").value;   
+
             // Calculate time elapsed and words per minute (WPM)
             var timeElapsed = (endTime - startTime) / 1000; // in seconds
             var userTypedText = document.getElementById("userInput").value;
@@ -29,6 +31,8 @@ startTime = new Date().getTime();
             var typedWords = userTypedText.split(/\s+/).filter(function (word) {
                 return word !== "";
             }).length;
+
+            var totalLength = userTypedText.length;
 
             var wpm = 0; // Default value
 
@@ -39,7 +43,8 @@ startTime = new Date().getTime();
             // Display the results
             var outputDiv = document.getElementById("output");
             outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
+                "<p>Total Length: " + totalLength + "</p>" + // Added this line
                 "<p>Words Typed: " + typedWords + "</p>" +
                 "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
-                "<p>Words Per Minute (WPM): " + wpm + "</p>";
-            }
+                "<p>Words Per Minute (WPM): " + wpm + "</p>";               
+ }
