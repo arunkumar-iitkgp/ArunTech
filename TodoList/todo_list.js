@@ -29,6 +29,10 @@ function displayTasks() {
             tasks = tasks.filter(task => !task.completed);
             displayTasks();
         }
+        function clearAllTasks() {
+            tasks = [];    
+            displayTasks();
+        }
 addTaskBtn.addEventListener("click", addTask);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
  displayTasks();
